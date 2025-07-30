@@ -1,1 +1,312 @@
+/* Importa la fuente Inter de Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
 
+/* Estilos generales del cuerpo y la fuente */
+body {
+    font-family: 'Inter', sans-serif; /* Usa la fuente Inter */
+    margin: 0;
+    padding: 0;
+    background-color: #F8F8F8; /* Fondo claro */
+    color: #333; /* Color de texto oscuro */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Alinea al inicio para que el contenido fluya hacia abajo */
+    min-height: 100vh; /* Altura mínima del viewport */
+    overflow-x: hidden; /* Evita el desplazamiento horizontal */
+    position: relative; /* Necesario para los pseudo-elementos de estrellas */
+    padding-top: 20px; /* Espacio superior */
+    padding-bottom: 50px; /* Espacio inferior */
+}
+
+/* Detalles de estrellas en el fondo con pseudo-elementos */
+body::before,
+body::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.7); /* Estrellas blancas semi-transparentes */
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    z-index: -1; /* Detrás del contenido */
+}
+
+/* Posición y tamaño de las estrellas */
+body::before {
+    width: 8px;
+    height: 8px;
+    top: 10%;
+    left: 15%;
+}
+
+body::after {
+    width: 6px;
+    height: 6px;
+    bottom: 20%;
+    right: 10%;
+}
+
+/* Más estrellas para un efecto más completo */
+.container::before,
+.container::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    z-index: -1;
+}
+
+.container::before {
+    width: 5px;
+    height: 5px;
+    top: 5%;
+    right: 25%;
+}
+
+.container::after {
+    width: 7px;
+    height: 7px;
+    bottom: 5%;
+    left: 20%;
+}
+
+
+/* Contenedor principal */
+.container {
+    background-color: #FFFFFF; /* Fondo blanco para el contenido */
+    padding: 30px;
+    border-radius: 15px; /* Bordes redondeados */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* Sombra suave */
+    max-width: 1200px;
+    width: 95%; /* Ancho responsivo */
+    box-sizing: border-box; /* Incluye padding y borde en el ancho total */
+    text-align: center;
+}
+
+h1 {
+    color: #4A90E2; /* Azul pastel para el título */
+    margin-bottom: 30px;
+    font-weight: 700; /* Negrita para el título */
+}
+
+/* Estilos de la cuadrícula de la malla curricular */
+.curriculum-grid {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los semestres se envuelvan en pantallas pequeñas */
+    gap: 20px; /* Espacio entre semestres */
+    justify-content: center; /* Centra los semestres */
+}
+
+/* Estilos para cada columna de semestre */
+.semester-column {
+    background-color: #F0FFF0; /* Honeydew - verde pastel muy claro */
+    padding: 20px;
+    border-radius: 12px; /* Bordes redondeados */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Sombra más ligera */
+    flex: 1; /* Permite que las columnas se expandan */
+    min-width: 280px; /* Ancho mínimo para cada columna */
+    max-width: 350px; /* Ancho máximo para cada columna */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.2s ease-in-out; /* Transición suave al pasar el ratón */
+}
+
+.semester-column:hover {
+    transform: translateY(-5px); /* Pequeño efecto de elevación al pasar el ratón */
+}
+
+h2 {
+    color: #6A5ACD; /* SlateBlue - púrpura pastel */
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-weight: 600; /* Seminegrita */
+}
+
+/* Lista de ramos dentro de cada semestre */
+.course-list {
+    list-style: none;
+    padding: 0;
+    width: 100%; /* Ocupa todo el ancho de la columna */
+}
+
+/* Estilos para cada ramo */
+.course-item {
+    background-color: #E0FFFF; /* LightCyan - azul pastel claro */
+    margin-bottom: 10px;
+    padding: 15px;
+    border-radius: 8px; /* Bordes redondeados */
+    cursor: pointer;
+    text-align: left;
+    transition: background-color 0.3s ease, transform 0.1s ease; /* Transiciones suaves */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* Sombra sutil */
+    font-weight: 400; /* Peso de fuente normal */
+}
+
+.course-item:hover {
+    transform: translateY(-2px); /* Pequeño efecto de elevación al pasar el ratón */
+    background-color: #D0FFFF; /* Un poco más oscuro al pasar el ratón */
+}
+
+/* Estilo para ramo aprobado */
+.course-item.approved {
+    background-color: #98FB98; /* PaleGreen - verde pastel */
+    text-decoration: line-through; /* Tachado */
+    color: #555; /* Color de texto ligeramente más tenue */
+    cursor: default; /* Cambia el cursor para indicar que no es interactivo */
+    opacity: 0.9; /* Ligeramente transparente */
+}
+
+.course-item.approved:hover {
+    transform: none; /* Elimina el efecto de elevación */
+    background-color: #98FB98; /* Mantiene el color */
+}
+
+/* Estilo para ramo bloqueado */
+.course-item.blocked {
+    background-color: #FFB6C1; /* LightPink - rosa pastel */
+    cursor: not-allowed; /* Cursor de "no permitido" */
+    opacity: 0.7; /* Más transparente para indicar inactividad */
+}
+
+.course-item.blocked:hover {
+    transform: none; /* Elimina el efecto de elevación */
+    background-color: #FFB6C1; /* Mantiene el color */
+}
+
+/* Estilos del modal de mensaje */
+.message-modal {
+    display: none; /* Oculto por defecto */
+    position: fixed; /* Fijo en la pantalla */
+    z-index: 1000; /* Por encima de todo */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente oscuro */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #FFFFFF; /* Fondo blanco */
+    padding: 30px;
+    border-radius: 15px; /* Bordes redondeados */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada */
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    position: relative;
+    animation: fadeInScale 0.3s ease-out; /* Animación de entrada */
+}
+
+/* Animación para el modal */
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.close-button {
+    color: #aaa;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #333;
+}
+
+.modal-content h2 {
+    color: #E74C3C; /* Rojo pastel para el título del error */
+    margin-bottom: 15px;
+}
+
+.modal-content p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 25px;
+}
+
+.modal-ok-button {
+    background-color: #4A90E2; /* Azul pastel para el botón */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.modal-ok-button:hover {
+    background-color: #357ABD; /* Azul un poco más oscuro al pasar el ratón */
+    transform: translateY(-2px);
+}
+
+/* Media Queries para responsividad */
+@media (max-width: 1024px) {
+    .semester-column {
+        min-width: 250px;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    .curriculum-grid {
+        flex-direction: column; /* Apila los semestres en pantallas pequeñas */
+        align-items: center; /* Centra las columnas apiladas */
+    }
+
+    .semester-column {
+        width: 90%; /* Ocupa casi todo el ancho disponible */
+        max-width: 400px; /* Limita el ancho máximo en móviles */
+    }
+
+    .container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    .semester-column {
+        padding: 15px;
+    }
+
+    .course-item {
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    .modal-content {
+        padding: 20px;
+    }
+
+    .modal-content h2 {
+        font-size: 22px;
+    }
+
+    .modal-content p {
+        font-size: 14px;
+    }
+
+    .modal-ok-button {
+        padding: 8px 15px;
+        font-size: 14px;
+    }
+}
