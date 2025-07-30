@@ -1,1 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Malla Curricular Kinesiología</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Enlace a Google Fonts para la fuente Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Malla Curricular de Kinesiología</h1>
+        <div id="curriculum-grid" class="curriculum-grid">
+            <!-- Los semestres y ramos se cargarán aquí dinámicamente con JavaScript -->
+        </div>
 
+        <!-- Modal para mensajes de requisitos no cumplidos -->
+        <div id="message-modal" class="message-modal">
+            <div class="modal-content">
+                <span class="close-button">&times;</span>
+                <h2>Ramo Bloqueado</h2>
+                <p id="modal-message"></p>
+                <button class="modal-ok-button">Entendido</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
